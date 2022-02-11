@@ -451,6 +451,7 @@
 // Custom board
 //
 
+#define BOARD_AC_TRI_F1_V1            9997  // Anycubic Trigorilla V0.0.6 (STM32F103RET6)
 #define BOARD_CUSTOM                  9998  // Custom pins definition for development and/or rare boards
 
 //
