@@ -1,0 +1,21 @@
+name: 'Sync with upstream/2.0.x'
+on:
+  schedule:
+    - cron:  '0 3 * * *'
+jobs:
+  sync_latest_from_upstream:
+    runs-on: ubuntu-latest
+    name: Sync latest commits from upstream repo
+    steps:
+    - name: Checkout target repo
+      uses: actions/checkout@v2
+      with:
+        ref:  vyper-2.0.x
+    - name: Sync upstream changes
+      id: sync
+      uses: aormsby/Fork-Sync-With-Upstream-action@v3.2
+      with:
+        target_sync_branch: vyper-2.0.x
+        target_repo_token: ${{ secrets.GITHUB_TOKEN }}
+        upstream_sync_branch: 2.0.x
+        upstream_sync_repo: MarlinFirmware/Marlin
